@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags for US Audience -->
+  <title>OmniLoan - 2026 US Student Loan Refinancing & Repayment Estimator</title>
+  <meta name="description" content="100% free US student loan calculators. Estimate federal and private loan refinancing rates, monthly repayments, and total interest savings instantly.">
+  <meta name="keywords" content="us student loan calculator, loan refinancing calculator, student debt repayment estimator, federal loan amortization">
+  <meta name="author" content="OmniLoan">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  
+  <!-- Canonical Tag -->
+  <link rel="canonical" href="https://omni-loan.vercel.app/">
+
+  <!-- Google Search Console Verification Tag -->
+  <meta name="google-site-verification" content="google45274bc7d9133ca5" />
+
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2805918301542012" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "OmniLoan Student Loan Calculator",
+    "url": "https://omni-loan.vercel.app/",
+    "description": "Free US student loan refinancing and repayment estimation suite.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+  <!-- Google Font & Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] } } }
+    }
+  </script>
+
+  <style>
+    body { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%); transition: background-color 0.3s ease; }
+    html.dark body { background: linear-gradient(135deg, #09090b 0%, #0f172a 50%, #1e1b4b 100%); color: #f8fafc; }
+    .pastel-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08); transition: all 0.3s ease; }
+    html.dark .pastel-card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5); }
+    .gradient-text { background: linear-gradient(135deg, #4f46e5 0%, #0d9488 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col antialiased text-slate-800 dark:text-slate-100">
+
+  <!-- TOP NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/70 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-teal-600 flex items-center justify-center font-black text-xl text-white shadow-md">🎓</div>
+        <span class="text-xl font-extrabold tracking-tight text-slate-800 dark:text-white">Omni<span class="gradient-text">Loan</span></span>
+      </a>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="max-w-7xl mx-auto px-6 pt-10 pb-6 text-center">
+    <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950 px-3 py-1 rounded-full border border-indigo-100 dark:border-indigo-900 mb-3 inline-block">US Education Debt Intelligence</span>
+    <h1 class="text-3xl md:text-5xl font-black tracking-tight text-slate-800 dark:text-white mb-3">
+      Student Loan Refinancing & <span class="gradient-text">Repayment Suite.</span>
+    </h1>
+    <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-medium">
+      Estimate your monthly student loan payments, refinancing savings, and amortization schedules instantly.
+    </p>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-6 py-6 flex-1 w-full space-y-8">
+
+    <!-- CALCULATOR CARD -->
+    <div class="pastel-card p-6 md:p-8 rounded-3xl space-y-6 max-w-2xl mx-auto">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">🎓 Student Loan Monthly Payment Calculator</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Calculate your required monthly payment and total interest over the life of the loan.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Loan Balance ($):</label>
+          <input type="number" id="loanAmount" value="35000" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Interest Rate (%):</label>
+          <input type="number" step="0.1" id="loanRate" value="5.8" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Term (Years):</label>
+          <input type="number" id="loanTerm" value="10" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+      </div>
+
+      <div>
+        <button onclick="calculateLoan()" class="w-full bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-700 hover:to-teal-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Calculate Monthly Payment 📊
+        </button>
+      </div>
+
+      <div id="loanResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 space-y-4 text-center">
+        <div class="text-[10px] uppercase font-bold text-slate-400">Estimated Monthly Payment</div>
+        <div id="resMonthly" class="text-3xl font-black text-indigo-600 dark:text-indigo-400">$0</div>
+        <div class="text-xs text-slate-500">Total Interest Payable: <span id="resInterest" class="font-bold text-slate-700 dark:text-slate-300">$0</span></div>
+      </div>
+    </div>
+
+    <!-- CROSS-LINKING MATRIX (ALL 10 SITES) -->
+    <section class="pastel-card p-8 rounded-3xl space-y-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Recommended US Financial Tools Network</h3>
+      </div>
+      <h2 class="text-xl font-black text-slate-800 dark:text-white">Explore Our Complete Network of 10 US Calculator Suites</h2>
+      <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+        Maximize your personal finance, tax, legal, and risk management strategy with our comprehensive network of independent calculators targeting the US market:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-2">
+        <a href="https://omnitax-three.vercel.app/" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition group block">
+          <div class="text-sm font-extrabold text-slate-800 dark:text-white group-hover:text-indigo-600 transition">📋 OmniTax</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">US Federal income tax, refund, 1099, & capital gains estimators.</div>
+        </a>
+        <a href="https://omni-insure-flax.vercel.app/" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition group block">
+          <div class="text-sm font-extrabold text-slate-800 dark:text-white group-hover:text-indigo-600 transition">🛡️ OmniInsure</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">US health, auto, life, and home insurance coverage estimators.</div>
+        </a>
+        <a href="https://omnicrypto-eta.vercel.app/" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition group block">
+          <div class="text-sm font-extrabold text-slate-800 dark:text-white group-hover:text-indigo-600 transition">🪙 OmniCrypto</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Digital asset portfolio and cryptocurrency valuation trackers.</div>
+        </a>
+        <a href="https://omnifinance-xi.vercel.app/" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition group block">
+          <div class="text-sm font-extrabold text-slate-800 dark:text-white group-hover:text-indigo-600 transition">💰 OmniFinance</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">US mortgage, loan amortization, and compound interest tools.</div>
+        </a>
+        <a href="https://omnib2b.vercel.app/" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition group block">
+          <div class="text-sm font-extrabold text-slate-800 dark:text-white group-hover:text-indigo-600 transition">🏢 OmniB2B</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">SaaS pricing calculators and corporate payroll estimators.</div>
+        </a>
+        <a href="https://omni-legal.vercel.app/" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition group block">
+          <div class="text-sm font-extrabold text-slate-800 dark:text-white group-hover:text-indigo-600 transition">⚖️ OmniLegal</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">US legal fee estimators and injury settlement calculators.</div>
+        </a>
+        <a href="https://omnipdf-six.vercel.app/" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition group block">
+          <div class="text-sm font-extrabold text-slate-800 dark:text-white group-hover:text-indigo-600 transition">📄 OmniPDF</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Online document and financial statement conversion tools.</div>
+        </a>
+        <a href="https://omni-image.vercel.app/" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition group block">
+          <div class="text-sm font-extrabold text-slate-800 dark:text-white group-hover:text-indigo-600 transition">🖼️ OmniImage</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Digital asset graphic utilities and image optimizers.</div>
+        </a>
+        <a href="https://omnitext-online.vercel.app/" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition group block">
+          <div class="text-sm font-extrabold text-slate-800 dark:text-white group-hover:text-indigo-600 transition">📝 OmniText</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Advanced content formatting and text manipulation suites.</div>
+        </a>
+        <a href="https://dev-tools-converter-alpha.vercel.app/" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 transition group block">
+          <div class="text-sm font-extrabold text-slate-800 dark:text-white group-hover:text-indigo-600 transition">🛠️ DevTools Converter</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Developer utility tools and digital format converters.</div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 py-8 text-center text-xs text-slate-500 dark:text-slate-400 font-medium mt-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p>© 2026 OmniLoan. Independent US Financial Estimators.</p>
+      <div class="flex gap-6">
+        <a href="privacy.html" class="hover:text-slate-800 dark:hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-slate-800 dark:hover:text-white transition">Terms of Service</a>
+        <a href="contact.html" class="hover:text-slate-800 dark:hover:text-white transition">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+      document.getElementById('themeIcon').innerText = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+    }
+
+    function calculateLoan() {
+      const principal = parseFloat(document.getElementById('loanAmount').value) || 0;
+      const rate = (parseFloat(document.getElementById('loanRate').value) || 0) / 100 / 12;
+      const payments = (parseFloat(document.getElementById('loanTerm').value) || 0) * 12;
+
+      let monthly = 0;
+      if (rate > 0) {
+        monthly = (principal * rate * Math.pow(1 + rate, payments)) / (Math.pow(1 + rate, payments) - 1);
+      } else {
+        monthly = principal / payments;
+      }
+
+      const totalInterest = (monthly * payments) - principal;
+
+      document.getElementById('resMonthly').innerText = '$' + Math.round(monthly).toLocaleString();
+      document.getElementById('resInterest').innerText = '$' + Math.round(totalInterest).toLocaleString();
+      document.getElementById('loanResult').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
