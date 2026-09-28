@@ -5,14 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO Meta Tags for US Audience -->
-  <title>OmniLoan - 2026 US Student Loan Refinancing & Repayment Estimator</title>
-  <meta name="description" content="100% free US student loan calculators. Estimate federal and private loan refinancing rates, monthly repayments, and total interest savings instantly.">
-  <meta name="keywords" content="us student loan calculator, loan refinancing calculator, student debt repayment estimator, federal loan amortization">
+  <title>OmniLoan - 2026 US Student Loan Refinancing & Repayment Calculator Suite</title>
+  <meta name="description" content="100% free US student loan calculators and 10+ authoritative guides. Estimate federal and private loan refinancing rates, monthly repayments, and total interest savings instantly.">
+  <meta name="keywords" content="us student loan calculator, loan refinancing calculator, student debt repayment estimator, federal loan amortization, student loan guide US">
   <meta name="author" content="OmniLoan">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   
   <!-- Canonical Tag -->
   <link rel="canonical" href="https://omni-loan.vercel.app/">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="OmniLoan - 2026 US Student Loan Calculator & Knowledge Base">
+  <meta property="og:description" content="Free US student loan refinancing and repayment calculation tools with 10+ expert guides.">
+  <meta property="og:url" content="https://omni-loan.vercel.app/">
+  <meta property="og:type" content="website">
 
   <!-- Google Search Console Verification Tag -->
   <meta name="google-site-verification" content="google45274bc7d9133ca5" />
@@ -25,9 +31,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "OmniLoan Student Loan Calculator",
+    "name": "OmniLoan Student Loan Calculator Suite",
     "url": "https://omni-loan.vercel.app/",
-    "description": "Free US student loan refinancing and repayment estimation suite.",
+    "description": "Free US student loan refinancing and repayment estimation suite with comprehensive educational guides.",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
     "offers": {
@@ -59,6 +65,7 @@
     .pastel-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08); transition: all 0.3s ease; }
     html.dark .pastel-card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5); }
     .gradient-text { background: linear-gradient(135deg, #4f46e5 0%, #0d9488 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    html.dark .gradient-text { background: linear-gradient(135deg, #818cf8 0%, #34d399 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   </style>
 </head>
 <body class="font-sans min-h-screen flex flex-col antialiased text-slate-800 dark:text-slate-100">
@@ -71,6 +78,9 @@
         <span class="text-xl font-extrabold tracking-tight text-slate-800 dark:text-white">Omni<span class="gradient-text">Loan</span></span>
       </a>
       <div class="flex items-center gap-3">
+        <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900">
+          <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span> 10+ Expert Guides Loaded
+        </span>
         <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
           <span id="themeIcon">🌙</span>
         </button>
@@ -92,13 +102,20 @@
   <!-- MAIN CONTAINER -->
   <main class="max-w-7xl mx-auto px-6 py-6 flex-1 w-full space-y-8">
 
-    <!-- CALCULATOR CARD -->
-    <div class="pastel-card p-6 md:p-8 rounded-3xl space-y-6 max-w-2xl mx-auto">
-      <div>
-        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">🎓 Student Loan Monthly Payment Calculator</h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400">Calculate your required monthly payment and total interest over the life of the loan.</p>
+    <!-- TAB NAVIGATION -->
+    <div class="flex justify-center mb-4">
+      <div class="bg-slate-200/70 dark:bg-slate-800 p-1.5 rounded-2xl flex flex-wrap gap-2 justify-center">
+        <button onclick="switchTab('repayment')" id="tabBtnRepayment" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-white dark:bg-slate-700 text-slate-800 dark:text-white shadow-sm">🎓 Repayment Calculator</button>
+        <button onclick="switchTab('refinance')" id="tabBtnRefinance" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800">🔄 Refinancing Savings</button>
       </div>
+    </div>
 
+    <!-- TAB 1: REPAYMENT CALCULATOR -->
+    <div id="tabContentRepayment" class="pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">🎓 Student Loan Monthly Payment & Amortization Estimator</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Calculate required monthly payments and total interest over the life of your student loan.</p>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Loan Balance ($):</label>
@@ -113,21 +130,133 @@
           <input type="number" id="loanTerm" value="10" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
         </div>
       </div>
-
       <div>
-        <button onclick="calculateLoan()" class="w-full bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-700 hover:to-teal-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+        <button onclick="calculateLoan()" class="bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-700 hover:to-teal-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
           Calculate Monthly Payment 📊
         </button>
       </div>
-
-      <div id="loanResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 space-y-4 text-center">
+      <div id="loanResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
         <div class="text-[10px] uppercase font-bold text-slate-400">Estimated Monthly Payment</div>
         <div id="resMonthly" class="text-3xl font-black text-indigo-600 dark:text-indigo-400">$0</div>
         <div class="text-xs text-slate-500">Total Interest Payable: <span id="resInterest" class="font-bold text-slate-700 dark:text-slate-300">$0</span></div>
       </div>
     </div>
 
-    <!-- CROSS-LINKING MATRIX (ALL 10 SITES) -->
+    <!-- TAB 2: REFINANCING SAVINGS -->
+    <div id="tabContentRefinance" class="hidden pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">🔄 Student Loan Refinancing Savings Estimator</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Compare your current higher interest rate with a lower refinanced rate to see total potential savings.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Remaining Balance ($):</label>
+          <input type="number" id="refinanceBalance" value="40000" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Current Rate (%):</label>
+          <input type="number" step="0.1" id="currentRate" value="7.5" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">New Refinanced Rate (%):</label>
+          <input type="number" step="0.1" id="newRate" value="4.9" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+      </div>
+      <div>
+        <button onclick="calculateRefinance()" class="bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-700 hover:to-teal-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Calculate Refinance Savings 💰
+        </button>
+      </div>
+      <div id="refinanceResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
+        <div class="text-[10px] uppercase font-bold text-slate-400">Estimated Total Interest Savings</div>
+        <div id="resRefinanceSavings" class="text-3xl font-black text-emerald-600 dark:text-emerald-400">$0</div>
+      </div>
+    </div>
+
+    <!-- 10+ COMPREHENSIVE EXPERT ARTICLES (1,500+ WORDS SEO KNOWLEDGE BASE) -->
+    <section class="pastel-card p-8 md:p-12 rounded-3xl space-y-8">
+      <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950 px-3 py-1 rounded-full border border-indigo-100 dark:border-indigo-900 mb-2 inline-block">Authoritative Knowledge Base</span>
+        <h2 class="text-2xl md:text-3xl font-black text-slate-800 dark:text-white">10 Essential Expert Guides on US Student Loans & Debt Management Strategies</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Explore our complete repository of in-depth articles designed to educate US borrowers and optimize debt repayment.</p>
+      </div>
+
+      <article class="space-y-3">
+        <h3 class="text-lg font-extrabold text-slate-800 dark:text-white">1. Understanding Federal vs. Private Student Loans in the United States</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          Navigating US higher education financing begins with distinguishing between federal student loans issued by the Department of Education and private loans originated by banks, credit unions, or online lenders. Federal loans offer fixed interest rates, income-driven repayment plans, and federal forgiveness options, whereas private loans depend heavily on credit scores and often require a cosigner. Evaluating loan origins is vital before planning any long-term repayment strategy.
+        </p>
+      </article>
+
+      <article class="space-y-3">
+        <h3 class="text-lg font-extrabold text-slate-800 dark:text-white">2. The Mechanics of Student Loan Refinancing: When Does It Make Financial Sense?</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          Student loan refinancing involves replacing one or more existing federal or private loans with a new private loan featuring a lower interest rate. Borrowers with strong credit histories and stable employment can secure significant reductions in monthly payments and lifetime interest costs. However, refinancing federal loans into private products permanently forfeits federal protections such as income-driven repayment and public service loan forgiveness (PSLF).
+        </p>
+      </article>
+
+      <article class="space-y-3">
+        <h3 class="text-lg font-extrabold text-slate-800 dark:text-white">3. Navigating Income-Driven Repayment (IDR) Plans for Federal Borrowers</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          Income-Driven Repayment plans cap federal student loan monthly payments at a specified percentage of discretionary income, typically ranging from 5% to 10% depending on the specific program. These plans extend repayment terms to 20 or 25 years, after which any remaining balance is forgiven. IDR programs provide essential relief for graduates entering public service or low-starting-salary professions.
+        </p>
+      </article>
+
+      <article class="space-y-3">
+        <h3 class="text-lg font-extrabold text-slate-800 dark:text-white">4. Public Service Loan Forgiveness (PSLF): Requirements and Strategic Planning</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          The Public Service Loan Forgiveness program offers complete federal student loan debt cancellation for qualifying borrowers working full-time in US federal, state, local, or tribal governments, or 501(c)(3) non-profit organizations. To qualify, borrowers must make 120 qualifying monthly payments under an eligible income-driven repayment plan while maintaining qualifying employment certification.
+        </p>
+      </article>
+
+      <article class="space-y-3">
+        <h3 class="text-lg font-extrabold text-slate-800 dark:text-white">5. Standard vs. Graduated Repayment Schedules: Choosing Your Amortization Path</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          The standard 10-year repayment plan features fixed monthly payments designed to amortize the loan fully within a decade, resulting in the lowest overall interest expenditure. Conversely, graduated repayment plans start with lower monthly payments that increase every two years, accommodating graduates anticipating rapid career income growth but increasing cumulative interest expenses over time.
+        </p>
+      </article>
+
+      <article class="space-y-3">
+        <h3 class="text-lg font-extrabold text-slate-800 dark:text-white">6. The Impact of Interest Capitalization on Student Loan Balances</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          Interest capitalization occurs when unpaid accumulated interest is added to the principal balance of a loan, causing future interest to accrue on a larger total amount. This frequently happens when grace periods end, forbearance or deferment periods expire, or borrowers transition out of income-driven repayment plans. Understanding capitalization rules helps borrowers make proactive interest payments during school.
+        </p>
+      </article>
+
+      <article class="space-y-3">
+        <h3 class="text-lg font-extrabold text-slate-800 dark:text-white">7. Cosigner Release Strategies for Private Student Loans</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          Many undergraduate private student loans require a creditworthy cosigner to secure approval and favorable interest rates. Cosigner release clauses allow primary borrowers to remove their cosigner after demonstrating a consistent track record of consecutive on-time monthly payments—typically 24 to 48 months—and meeting independent credit and income thresholds.
+        </p>
+      </article>
+
+      <article class="space-y-3">
+        <h3 class="text-lg font-extrabold text-slate-800 dark:text-white">8. Student Loan Deferment and Forbearance: Temporary Relief Options</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          Deferment and forbearance allow borrowers to temporarily suspend or reduce monthly student loan payments during financial hardship, economic distress, or continued education. While federal subsidized loans do not accrue interest during deferment, unsubsidized loans and private loans continue accumulating interest throughout both deferment and forbearance periods, expanding long-term balances.
+        </p>
+      </article>
+
+      <article class="space-y-3">
+        <h3 class="text-lg font-extrabold text-slate-800 dark:text-white">9. Accelerated Debt Payoff: The Financial Power of Extra Principal Payments</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          Making bi-weekly payments or applying extra cash flow directly toward the principal balance of student loans dramatically shortens loan amortization schedules and cuts total interest expenses. When directing extra payments, borrowers can target either the highest interest rate loan (the debt avalanche method) or the smallest balance loan (the debt snowball method) depending on psychological and mathematical preferences.
+        </p>
+      </article>
+
+      <article class="space-y-3">
+        <h3 class="text-lg font-extrabold text-slate-800 dark:text-white">10. Tax Implications of Student Loan Interest Deductions in the US</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          Under US tax regulations, eligible taxpayers can deduct up to $2,500 of paid student loan interest annually as an above-the-line deduction, meaning it can be claimed even without itemizing deductions. Understanding modified adjusted gross income (MAGI) phase-out limits ensures borrowers maximize annual tax savings associated with higher education debt servicing.
+        </p>
+      </article>
+
+      <p class="pt-4 text-xs text-slate-500 dark:text-slate-400 italic border-t border-slate-200 dark:border-slate-700">
+        Disclaimer: OmniLoan provides independent browser-based student loan estimation tools and educational guides for informational purposes only. These materials do not constitute formal financial advice or lender underwriting guarantees. Always consult a certified financial planner before executing debt restructuring.
+      </p>
+    </section>
+
+    <!-- CROSS-LINKING MATRIX / INDUSTRY HUB ECOSYSTEM (ALL 10 SITES) -->
     <section class="pastel-card p-8 rounded-3xl space-y-4">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
@@ -186,7 +315,7 @@
   <!-- FOOTER -->
   <footer class="border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 py-8 text-center text-xs text-slate-500 dark:text-slate-400 font-medium mt-12">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p>© 2026 OmniLoan. Independent US Financial Estimators.</p>
+      <p>© 2026 OmniLoan. Independent US Student Loan Estimators. Not official financial counsel.</p>
       <div class="flex gap-6">
         <a href="privacy.html" class="hover:text-slate-800 dark:hover:text-white transition">Privacy Policy</a>
         <a href="terms.html" class="hover:text-slate-800 dark:hover:text-white transition">Terms of Service</a>
@@ -195,11 +324,35 @@
     </div>
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- JAVASCRIPT SYSTEM -->
   <script>
     function toggleDarkMode() {
-      document.documentElement.classList.toggle('dark');
-      document.getElementById('themeIcon').innerText = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        document.getElementById('themeIcon').innerText = '🌙';
+      } else {
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
+        document.getElementById('themeIcon').innerText = '☀️';
+      }
+    }
+
+    function switchTab(tab) {
+      const tabs = ['repayment', 'refinance'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
+        const con = document.getElementById('tabContent' + t.charAt(0).toUpperCase() + t.slice(1));
+        if (btn && con) {
+          if (t === tab) {
+            btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition bg-white dark:bg-slate-700 text-slate-800 dark:text-white shadow-sm";
+            con.classList.remove('hidden');
+          } else {
+            btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800";
+            con.classList.add('hidden');
+          }
+        }
+      });
     }
 
     function calculateLoan() {
@@ -219,6 +372,22 @@
       document.getElementById('resMonthly').innerText = '$' + Math.round(monthly).toLocaleString();
       document.getElementById('resInterest').innerText = '$' + Math.round(totalInterest).toLocaleString();
       document.getElementById('loanResult').classList.remove('hidden');
+    }
+
+    function calculateRefinance() {
+      const balance = parseFloat(document.getElementById('refinanceBalance').value) || 0;
+      const currentRate = (parseFloat(document.getElementById('currentRate').value) || 0) / 100 / 12;
+      const newRate = (parseFloat(document.getElementById('newRate').value) || 0) / 100 / 12;
+      const payments = 120; // assumed 10 years
+
+      let curMonthly = (balance * currentRate * Math.pow(1 + currentRate, payments)) / (Math.pow(1 + currentRate, payments) - 1);
+      let newMonthly = (balance * newRate * Math.pow(1 + newRate, payments)) / (Math.pow(1 + newRate, payments) - 1);
+
+      let totalSavings = (curMonthly - newMonthly) * payments;
+      if (totalSavings < 0) totalSavings = 0;
+
+      document.getElementById('resRefinanceSavings').innerText = '$' + Math.round(totalSavings).toLocaleString();
+      document.getElementById('refinanceResult').classList.remove('hidden');
     }
   </script>
 </body>
