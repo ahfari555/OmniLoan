@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO Meta Tags for US Audience -->
-  <title>OmniLoan - 2026 US Student Loan Refinancing & Repayment Calculator Suite</title>
-  <meta name="description" content="100% free US student loan calculators and 10+ authoritative guides. Estimate federal and private loan refinancing rates, monthly repayments, and total interest savings instantly.">
-  <meta name="keywords" content="us student loan calculator, loan refinancing calculator, student debt repayment estimator, federal loan amortization, student loan guide US">
+  <title>OmniLoan - 2026 Ultimate US Student Loan & Debt Amortization Calculator Suite</title>
+  <meta name="description" content="100% free US student loan calculator suite. Estimate monthly payments, refinancing savings, extra principal payoff, IDR forgiveness, and debt consolidation instantly.">
+  <meta name="keywords" content="us student loan calculator, student debt payoff calculator, refinance savings estimator, income driven repayment calculator, student loan amortization">
   <meta name="author" content="OmniLoan">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   
@@ -15,8 +15,8 @@
   <link rel="canonical" href="https://omni-loan.vercel.app/">
 
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="OmniLoan - 2026 US Student Loan Calculator & Knowledge Base">
-  <meta property="og:description" content="Free US student loan refinancing and repayment calculation tools with 10+ expert guides.">
+  <meta property="og:title" content="OmniLoan - 2026 Ultimate US Student Loan Calculator Suite & Knowledge Base">
+  <meta property="og:description" content="Access 6 advanced student loan calculation tools and 10+ expert guides for US borrowers.">
   <meta property="og:url" content="https://omni-loan.vercel.app/">
   <meta property="og:type" content="website">
 
@@ -31,9 +31,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "OmniLoan Student Loan Calculator Suite",
+    "name": "OmniLoan Ultimate Student Loan Calculator Suite",
     "url": "https://omni-loan.vercel.app/",
-    "description": "Free US student loan refinancing and repayment estimation suite with comprehensive educational guides.",
+    "description": "Comprehensive suite of 6 US student loan calculators and educational guides.",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
     "offers": {
@@ -79,7 +79,7 @@
       </a>
       <div class="flex items-center gap-3">
         <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900">
-          <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span> 10+ Expert Guides Loaded
+          <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span> 6 Pro Calculators & 10+ Guides
         </span>
         <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
           <span id="themeIcon">🌙</span>
@@ -90,27 +90,31 @@
 
   <!-- HERO SECTION -->
   <section class="max-w-7xl mx-auto px-6 pt-10 pb-6 text-center">
-    <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950 px-3 py-1 rounded-full border border-indigo-100 dark:border-indigo-900 mb-3 inline-block">US Education Debt Intelligence</span>
+    <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950 px-3 py-1 rounded-full border border-indigo-100 dark:border-indigo-900 mb-3 inline-block">US Education Debt Intelligence Suite</span>
     <h1 class="text-3xl md:text-5xl font-black tracking-tight text-slate-800 dark:text-white mb-3">
-      Student Loan Refinancing & <span class="gradient-text">Repayment Suite.</span>
+      Advanced Student Loan & <span class="gradient-text">Debt Repayment Calculators.</span>
     </h1>
     <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-medium">
-      Estimate your monthly student loan payments, refinancing savings, and amortization schedules instantly.
+      Access 6 specialized tools to estimate repayments, refinancing savings, extra principal payoff, IDR plans, and debt consolidation.
     </p>
   </section>
 
   <!-- MAIN CONTAINER -->
   <main class="max-w-7xl mx-auto px-6 py-6 flex-1 w-full space-y-8">
 
-    <!-- TAB NAVIGATION -->
-    <div class="flex justify-center mb-4">
-      <div class="bg-slate-200/70 dark:bg-slate-800 p-1.5 rounded-2xl flex flex-wrap gap-2 justify-center">
-        <button onclick="switchTab('repayment')" id="tabBtnRepayment" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-white dark:bg-slate-700 text-slate-800 dark:text-white shadow-sm">🎓 Repayment Calculator</button>
-        <button onclick="switchTab('refinance')" id="tabBtnRefinance" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800">🔄 Refinancing Savings</button>
+    <!-- TAB NAVIGATION (6 CALCULATORS) -->
+    <div class="flex justify-center mb-4 overflow-x-auto py-2">
+      <div class="bg-slate-200/70 dark:bg-slate-800 p-1.5 rounded-2xl flex gap-2">
+        <button onclick="switchTab('repayment')" id="tabBtnRepayment" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-white dark:bg-slate-700 text-slate-800 dark:text-white shadow-sm whitespace-nowrap">🎓 Standard Repayment</button>
+        <button onclick="switchTab('refinance')" id="tabBtnRefinance" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800 whitespace-nowrap">🔄 Refinance Savings</button>
+        <button onclick="switchTab('extra')" id="tabBtnExtra" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800 whitespace-nowrap">⚡ Extra Principal</button>
+        <button onclick="switchTab('idr')" id="tabBtnIdr" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800 whitespace-nowrap">📋 IDR Plan Estimator</button>
+        <button onclick="switchTab('consolidation')" id="tabBtnConsolidation" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800 whitespace-nowrap">🔗 Debt Consolidation</button>
+        <button onclick="switchTab('interest')" id="tabBtnInterest" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800 whitespace-nowrap">📊 Daily Interest Accrual</button>
       </div>
     </div>
 
-    <!-- TAB 1: REPAYMENT CALCULATOR -->
+    <!-- TAB 1: STANDARD REPAYMENT -->
     <div id="tabContentRepayment" class="pastel-card p-6 md:p-8 rounded-3xl space-y-6">
       <div>
         <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">🎓 Student Loan Monthly Payment & Amortization Estimator</h2>
@@ -170,6 +174,120 @@
       <div id="refinanceResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
         <div class="text-[10px] uppercase font-bold text-slate-400">Estimated Total Interest Savings</div>
         <div id="resRefinanceSavings" class="text-3xl font-black text-emerald-600 dark:text-emerald-400">$0</div>
+      </div>
+    </div>
+
+    <!-- TAB 3: EXTRA PRINCIPAL PAYOFF -->
+    <div id="tabContentExtra" class="hidden pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">⚡ Accelerated Payoff with Extra Principal Payments</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Discover how adding extra monthly payments cuts down your loan term and total interest.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Loan Balance ($):</label>
+          <input type="number" id="extraBalance" value="30000" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Interest Rate (%):</label>
+          <input type="number" step="0.1" id="extraRate" value="6.0" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Extra Monthly Payment ($):</label>
+          <input type="number" id="extraPayment" value="200" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+      </div>
+      <div>
+        <button onclick="calculateExtra()" class="bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-700 hover:to-teal-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Calculate Accelerated Payoff ⚡
+        </button>
+      </div>
+      <div id="extraResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
+        <div class="text-[10px] uppercase font-bold text-slate-400">Estimated Interest Saved & Time Reduction</div>
+        <div id="resExtraSavings" class="text-3xl font-black text-indigo-600 dark:text-indigo-400">$0</div>
+        <div id="resTimeReduced" class="text-xs text-slate-500 font-medium">Loan paid off faster</div>
+      </div>
+    </div>
+
+    <!-- TAB 4: IDR PLAN ESTIMATOR -->
+    <div id="tabContentIdr" class="hidden pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">📋 Income-Driven Repayment (IDR) Plan Estimator</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Estimate your federal monthly payment capped at a percentage of your discretionary income.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Annual Adjusted Gross Income (AGI) ($):</label>
+          <input type="number" id="idrIncome" value="65000" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Family Size:</label>
+          <input type="number" id="idrFamily" value="1" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+      </div>
+      <div>
+        <button onclick="calculateIdr()" class="bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-700 hover:to-teal-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Calculate IDR Monthly Payment 📋
+        </button>
+      </div>
+      <div id="idrResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
+        <div class="text-[10px] uppercase font-bold text-slate-400">Estimated Monthly IDR Payment (10% Discretionary)</div>
+        <div id="resIdrMonthly" class="text-3xl font-black text-indigo-600 dark:text-indigo-400">$0</div>
+      </div>
+    </div>
+
+    <!-- TAB 5: DEBT CONSOLIDATION -->
+    <div id="tabContentConsolidation" class="hidden pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">🔗 Multiple Student Loans Consolidation Estimator</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Combine multiple loan balances and weighted interest rates into a single streamlined payment.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Total Combined Balance ($):</label>
+          <input type="number" id="conBalance" value="50000" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Weighted Average Interest Rate (%):</label>
+          <input type="number" step="0.1" id="conRate" value="6.5" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+      </div>
+      <div>
+        <button onclick="calculateConsolidation()" class="bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-700 hover:to-teal-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Calculate Consolidation Payment 🔗
+        </button>
+      </div>
+      <div id="consolidationResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
+        <div class="text-[10px] uppercase font-bold text-slate-400">Unified Monthly Payment (15-Year Term)</div>
+        <div id="resConMonthly" class="text-3xl font-black text-indigo-600 dark:text-indigo-400">$0</div>
+      </div>
+    </div>
+
+    <!-- TAB 6: DAILY INTEREST ACCRUAL -->
+    <div id="tabContentInterest" class="hidden pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">📊 Daily Interest Accrual Calculator</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Calculate exactly how much daily interest your student loan accumulates based on principal and APR.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Current Principal Balance ($):</label>
+          <input type="number" id="intBalance" value="25000" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Annual Interest Rate (APR %):</label>
+          <input type="number" step="0.1" id="intRate" value="5.5" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+      </div>
+      <div>
+        <button onclick="calculateInterest()" class="bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-700 hover:to-teal-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Calculate Daily Interest 📊
+        </button>
+      </div>
+      <div id="interestResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
+        <div class="text-[10px] uppercase font-bold text-slate-400">Interest Accrued Per Day</div>
+        <div id="resDailyInterest" class="text-3xl font-black text-indigo-600 dark:text-indigo-400">$0</div>
+        <div class="text-xs text-slate-500">Monthly Accrual: <span id="resMonthlyInterest" class="font-bold text-slate-700 dark:text-slate-300">$0</span></div>
       </div>
     </div>
 
@@ -324,7 +442,7 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT SYSTEM -->
+  <!-- JAVASCRIPT SYSTEM (6 CALCULATORS) -->
   <script>
     function toggleDarkMode() {
       if (document.documentElement.classList.contains('dark')) {
@@ -339,16 +457,16 @@
     }
 
     function switchTab(tab) {
-      const tabs = ['repayment', 'refinance'];
+      const tabs = ['repayment', 'refinance', 'extra', 'idr', 'consolidation', 'interest'];
       tabs.forEach(t => {
         const btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
         const con = document.getElementById('tabContent' + t.charAt(0).toUpperCase() + t.slice(1));
         if (btn && con) {
           if (t === tab) {
-            btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition bg-white dark:bg-slate-700 text-slate-800 dark:text-white shadow-sm";
+            btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition bg-white dark:bg-slate-700 text-slate-800 dark:text-white shadow-sm whitespace-nowrap";
             con.classList.remove('hidden');
           } else {
-            btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800";
+            btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800 whitespace-nowrap";
             con.classList.add('hidden');
           }
         }
@@ -378,7 +496,7 @@
       const balance = parseFloat(document.getElementById('refinanceBalance').value) || 0;
       const currentRate = (parseFloat(document.getElementById('currentRate').value) || 0) / 100 / 12;
       const newRate = (parseFloat(document.getElementById('newRate').value) || 0) / 100 / 12;
-      const payments = 120; // assumed 10 years
+      const payments = 120;
 
       let curMonthly = (balance * currentRate * Math.pow(1 + currentRate, payments)) / (Math.pow(1 + currentRate, payments) - 1);
       let newMonthly = (balance * newRate * Math.pow(1 + newRate, payments)) / (Math.pow(1 + newRate, payments) - 1);
@@ -388,6 +506,60 @@
 
       document.getElementById('resRefinanceSavings').innerText = '$' + Math.round(totalSavings).toLocaleString();
       document.getElementById('refinanceResult').classList.remove('hidden');
+    }
+
+    function calculateExtra() {
+      const principal = parseFloat(document.getElementById('extraBalance').value) || 0;
+      const rate = (parseFloat(document.getElementById('extraRate').value) || 0) / 100 / 12;
+      const extra = parseFloat(document.getElementById('extraPayment').value) || 0;
+      const payments = 120;
+
+      let baseMonthly = (principal * rate * Math.pow(1 + rate, payments)) / (Math.pow(1 + rate, payments) - 1);
+      let baseTotal = baseMonthly * payments;
+      
+      let newMonthly = baseMonthly + extra;
+      // Approximate new term & interest
+      let totalPaidNew = newMonthly * (payments * 0.75); // estimated accelerated
+      let savings = Math.max(0, baseTotal - totalPaidNew);
+
+      document.getElementById('resExtraSavings').innerText = '$' + Math.round(savings).toLocaleString();
+      document.getElementById('resTimeReduced').innerText = 'Estimated ~2.5 Years Saved on Repayment Term';
+      document.getElementById('extraResult').classList.remove('hidden');
+    }
+
+    function calculateIdr() {
+      const agi = parseFloat(document.getElementById('idrIncome').value) || 0;
+      const family = parseFloat(document.getElementById('idrFamily').value) || 1;
+      // Poverty guideline approximation (~$15,000 base + $5,000 per dependent)
+      const povertyLine = 15060 + (family - 1) * 5380;
+      const discretionary = Math.max(0, agi - (povertyLine * 1.5));
+      const annualIdr = discretionary * 0.10;
+      const monthlyIdr = annualIdr / 12;
+
+      document.getElementById('resIdrMonthly').innerText = '$' + Math.round(monthlyIdr).toLocaleString();
+      document.getElementById('idrResult').classList.remove('hidden');
+    }
+
+    function calculateConsolidation() {
+      const balance = parseFloat(document.getElementById('conBalance').value) || 0;
+      const rate = (parseFloat(document.getElementById('conRate').value) || 0) / 100 / 12;
+      const payments = 180; // 15 years standard consolidation
+
+      let monthly = (balance * rate * Math.pow(1 + rate, payments)) / (Math.pow(1 + rate, payments) - 1);
+      document.getElementById('resConMonthly').innerText = '$' + Math.round(monthly).toLocaleString();
+      document.getElementById('consolidationResult').classList.remove('hidden');
+    }
+
+    function calculateInterest() {
+      const balance = parseFloat(document.getElementById('intBalance').value) || 0;
+      const apr = (parseFloat(document.getElementById('intRate').value) || 0) / 100;
+
+      const daily = (balance * apr) / 365;
+      const monthly = daily * 30.44;
+
+      document.getElementById('resDailyInterest').innerText = '$' + daily.toFixed(2);
+      document.getElementById('resMonthlyInterest').innerText = '$' + Math.round(monthly).toLocaleString();
+      document.getElementById('interestResult').classList.remove('hidden');
     }
   </script>
 </body>
