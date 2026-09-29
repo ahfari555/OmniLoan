@@ -117,15 +117,14 @@
     .adsense-slot {
       background: rgba(241, 245, 249, 0.7);
       border: 2px dashed rgba(5, 150, 105, 0.3);
-      border-radius: 1rem;
-      padding: 1rem;
+      border-radius: 1.5rem;
+      padding: 1.25rem;
       text-align: center;
       min-height: 100px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1rem;
     }
     html.dark .adsense-slot {
       background: rgba(30, 41, 59, 0.5);
@@ -136,7 +135,6 @@
       border: 1px solid rgba(5, 150, 105, 0.3);
       border-radius: 1.5rem;
       padding: 1.5rem;
-      margin-top: 1.5rem;
     }
 
     @media print {
@@ -255,7 +253,7 @@
       </div>
     </div>
 
-    <!-- 2-COLUMN GRID (INPUTS LEFT, CHART & MONETIZATION RIGHT) -->
+    <!-- 2-COLUMN GRID (INPUTS LEFT, CHART & MONETIZATION STACKED RIGHT) -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
       
       <!-- LEFT COLUMN: FORMS -->
@@ -529,9 +527,11 @@
 
       </div>
 
-      <!-- RIGHT COLUMN: VISUALIZATION CHART + ADS + CTA -->
-      <div class="lg:col-span-7 space-y-6">
-        <div id="resultCard" class="pastel-card p-8 md:p-10 rounded-3xl flex flex-col justify-center items-center h-full min-h-[500px]">
+      <!-- RIGHT COLUMN: STACKED (CHART CARD + ADSENSE + AFFILIATE CTA) -->
+      <div class="lg:col-span-7 flex flex-col space-y-6">
+        
+        <!-- Result Card & Chart -->
+        <div id="resultCard" class="pastel-card p-8 md:p-10 rounded-3xl flex flex-col justify-center items-center w-full min-h-[500px]">
           <div class="text-center space-y-3 mb-8 w-full border-b border-slate-200 dark:border-slate-700 pb-6">
             <div id="resultLabel" class="text-sm uppercase tracking-widest font-extrabold text-slate-400 dark:text-slate-500">System Standby</div>
             <div id="resultTotal" class="text-4xl md:text-5xl font-black text-slate-800 dark:text-white drop-shadow-sm">Awaiting Input</div>
