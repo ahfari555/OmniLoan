@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OmniLoan - 2026 US Mortgage, Student Loan & Refinance Calculator Suite</title>
-  <meta name="description" content="100% free US loan calculator suite. Estimate your mortgage payments, student loan payoff timelines, auto loans, HELOCs, and refinancing savings instantly.">
-  <meta name="keywords" content="mortgage calculator, student loan calculator, auto loan payment estimator, refinance calculator, heloc estimator, amortization schedule">
-  <meta name="author" content="OmniLoan Enterprise">
+  <meta name="description" content="100% free US loan calculator suite. Estimate your mortgage payments, student loan payoff timelines, auto loans, HELOCs, and refinancing savings instantly with live charts.">
+  <meta name="keywords" content="mortgage calculator, student loan calculator, auto loan payment estimator, refinance calculator, heloc estimator, amortization schedule, US loan tools">
+  <meta name="author" content="OmniLoan Enterprise Suite">
   <link rel="canonical" href="https://omni-loan.vercel.app/">
   <meta name="google-site-verification" content="google45274bc7d9133ca5" />
 
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="OmniLoan - 2026 Ultimate US Loan & Mortgage Calculator">
-  <meta property="og:description" content="Access 10 advanced financial calculation tools with visual charts for optimal debt and loan management.">
+  <meta property="og:title" content="OmniLoan - Ultimate US Loan & Mortgage Calculator Suite">
+  <meta property="og:description" content="Access 10 advanced financial calculation tools with visual charts for optimal debt and loan management in 2026.">
   <meta property="og:url" content="https://omni-loan.vercel.app/">
   <meta property="og:type" content="website">
 
@@ -25,9 +25,14 @@
         "@type": "WebApplication",
         "name": "OmniLoan Suite",
         "url": "https://omni-loan.vercel.app/",
-        "description": "Comprehensive suite of 10 US loan, mortgage, and refinancing calculators.",
+        "description": "Comprehensive suite of 10 US loan, mortgage, and refinancing calculators with visual charts.",
         "applicationCategory": "FinanceApplication",
-        "operatingSystem": "All"
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
       },
       {
         "@type": "FAQPage",
@@ -69,7 +74,12 @@
   <script>
     tailwind.config = {
       darkMode: 'class',
-      theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] } } }
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+          colors: { emerald: { 500: '#059669', 600: '#047857' } }
+        }
+      }
     }
   </script>
   <style>
@@ -103,9 +113,35 @@
     }
     @keyframes pulse-slow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
     .animate-pulse-slow { animation: pulse-slow 4s infinite ease-in-out; }
+    
+    .adsense-slot {
+      background: rgba(241, 245, 249, 0.7);
+      border: 2px dashed rgba(5, 150, 105, 0.3);
+      border-radius: 1rem;
+      padding: 1rem;
+      text-align: center;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    html.dark .adsense-slot {
+      background: rgba(30, 41, 59, 0.5);
+      border: 2px dashed rgba(52, 211, 153, 0.2);
+    }
+    .affiliate-cta {
+      background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%);
+      border: 1px solid rgba(5, 150, 105, 0.3);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
     @media print {
       body { background: white; color: black; }
-      header, .no-print, #seo-section, #faq-section, #matrix-section, footer { display: none !important; }
+      header, .no-print, #seo-section, #faq-section, #matrix-section, footer, .adsense-slot, .affiliate-cta { display: none !important; }
       #printArea { display: block !important; width: 100%; box-shadow: none; border: none; padding: 0; }
       .pastel-card { border: 1px solid #ccc; box-shadow: none; }
     }
@@ -122,7 +158,7 @@
       </a>
       <div class="flex items-center gap-4">
         <span class="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900">
-          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span> 10 Pro Loan Tools Active
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span> 10 Pro Tools
         </span>
         <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition" aria-label="Toggle Dark Mode">
           <span id="themeIcon">🌙</span>
@@ -131,7 +167,7 @@
     </div>
   </header>
 
-  <!-- HERO SECTION WITH CUSTOM SVG ILLUSTRATION & STAT CARDS -->
+  <!-- HERO SECTION WITH CUSTOM SVG ILLUSTRATION -->
   <div class="hero-glow top-20 left-1/2 -translate-x-1/2"></div>
   <section class="max-w-7xl mx-auto px-6 pt-10 pb-6 text-center relative z-10 no-print">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-extrabold bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900 mb-6 shadow-sm">
@@ -172,7 +208,7 @@
     </div>
 
     <h1 class="text-4xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white mb-4 leading-tight">
-      Ultimate US Loan & <br class="hidden md:inline"><span class="gradient-text">Refinance Visualizer.</span>
+      Ultimate US Loan & <br class="hidden md:inline"><span class="gradient-text">Refinance Intelligence.</span>
     </h1>
     
     <p class="text-slate-600 dark:text-slate-300 text-sm md:text-lg max-w-3xl mx-auto font-medium leading-relaxed mb-6">
@@ -219,7 +255,7 @@
       </div>
     </div>
 
-    <!-- 2-COLUMN GRID (INPUTS LEFT, CHART RIGHT) -->
+    <!-- 2-COLUMN GRID (INPUTS LEFT, CHART & MONETIZATION RIGHT) -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
       
       <!-- LEFT COLUMN: FORMS -->
@@ -493,8 +529,8 @@
 
       </div>
 
-      <!-- RIGHT COLUMN: VISUALIZATION CHART -->
-      <div class="lg:col-span-7">
+      <!-- RIGHT COLUMN: VISUALIZATION CHART + ADS + CTA -->
+      <div class="lg:col-span-7 space-y-6">
         <div id="resultCard" class="pastel-card p-8 md:p-10 rounded-3xl flex flex-col justify-center items-center h-full min-h-[500px]">
           <div class="text-center space-y-3 mb-8 w-full border-b border-slate-200 dark:border-slate-700 pb-6">
             <div id="resultLabel" class="text-sm uppercase tracking-widest font-extrabold text-slate-400 dark:text-slate-500">System Standby</div>
@@ -511,6 +547,33 @@
             <canvas id="loanChart"></canvas>
           </div>
         </div>
+
+        <!-- ADSENSE BANNER SLOT -->
+        <div class="w-full no-print">
+          <div class="adsense-slot">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Advertisement (Google AdSense)</span>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2805918301542012"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+
+        <!-- DYNAMIC US FINANCIAL AFFILIATE CTA -->
+        <div class="w-full affiliate-cta no-print text-center space-y-2">
+          <div class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500 text-white mb-1">Sponsored US Partner</div>
+          <h3 class="text-base font-black text-slate-800 dark:text-white">Looking for Lower Rates? Check Pre-Qualified Offers</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-300">Compare top US lenders in 2 minutes without impacting your credit score.</p>
+          <a href="https://www.example-affiliate-network.com" target="_blank" rel="nofollow noopener" class="inline-block mt-3 bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 text-white font-extrabold text-xs px-6 py-3 rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+            View Rates & Offers →
+          </a>
+        </div>
+
       </div>
 
     </div>
@@ -767,11 +830,8 @@
       let rate = (parseFloat(document.getElementById('extRate').value) || 0) / 100 / 12;
       let extra = parseFloat(document.getElementById('extAmount').value) || 0;
       
-      let term = 360; // 30 yrs
+      let term = 360;
       let baseM = bal * (rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
-      let newM = baseM + extra;
-      
-      // Rough estimation of months saved
       let monthsSaved = Math.round(term * (extra / (baseM + extra)));
 
       document.getElementById('resultLabel').innerText = 'Estimated Time Saved';
